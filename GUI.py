@@ -1,7 +1,7 @@
 import tkinter as tk
 import config as c
+import os
 import text as txt
-import image
 import  utils
 from tkinter import font
 
@@ -12,7 +12,8 @@ active_button_color = "#3498DB"
 sidebar_color = "#303848"
 barline_color = "#111E36"
 
-app_logo = tk.PhotoImage(file="img/Logo.png")
+app_logo_path = c.resource_path("img/Logo.png")
+app_logo = tk.PhotoImage(file=app_logo_path)
 app_logo = app_logo.subsample(15, 15)
 
 # bg_img = tk.PhotoImage(file="img/bg1.png", width=1700, height=1000).zoom(2, 2)

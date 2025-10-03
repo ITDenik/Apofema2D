@@ -1,11 +1,24 @@
 import tkinter as tk
-#C:/Users/Наташа/Desktop/Проекты Дениса/проекты Java и Python/Python/Geometry/main.py
+import sys
+import os
+
+# pyinstaller --name="Apofema2D beta 0.1.1" --onefile --noconsole --icon=img/Logo.ico main.py
+# pyinstaller Apofema2D_beta_0.1.1.spec
+
+def resource_path(relative_path): # Получение правильного пути
+    try:
+        base_path = sys._MEIPASS
+    except Exception as e:
+        base_path = os.path.abspath(".")
+        print(e)
+    return os.path.join(base_path, relative_path)
 
 win = tk.Tk()
 width, height = 1000, 650
 win.geometry(f"{width}x{height}+100+30")
 win.title("Апофема2D")
-win.iconbitmap("img/Logo.ico")
+iconPath = resource_path("img/Logo.ico")
+win.iconbitmap(iconPath)
 
 lock_color = False
 current_figure = "rect"
